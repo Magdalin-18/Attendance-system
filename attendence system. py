@@ -1,0 +1,44 @@
+print("*******student attendence system*******")
+attendence={}
+def mark_attendence():
+    name=input("enter the name of the student:\n\n")
+    if name.isalpha():
+        print(f"The Name of the student is {name}\n")
+    else:
+        print("\ninvalid entry pls check the name")   
+    if name in attendence:
+       print(f"{name} is already marked\n")
+    else:
+        status=input("enter present or absent / P orA\n").strip().upper()
+        if status in ['P','A']:
+            attendence[name]='present'
+            if status=='P':
+               attendence[name] = "Present" if status == 'P' else "Absent"
+            print(f"\n\nAttendance marked for {name}\n.")
+        else:
+            print("Invalid input. Use 'P' or 'A'")     
+def display_attendence():
+    if not attendence:
+        print("No attendance records yet.")
+    else:
+        print("\nAttendance Records:\n")
+        for name, status in attendence.items():
+            print(f"{name}: {status}\n")
+while True:
+    print(":::::Enter your choice:::::")
+    print("\n1. Mark the Attendance")
+    print("2. display the Attendance")
+    print("3. Exit")
+    choice = input("CHOICE: ").strip()   
+    if choice == '1':
+        print("****your choice is to mark the attedence***\n")
+        mark_attendence()
+    elif choice == '2':
+          print("\n*your choice is to display the attendence***")
+          display_attendence()  
+    elif choice == '3':
+        print("quiting. Thankyou😇!")
+        break
+    else:
+        print("Invalid choice. Please enter any option from  1, 2, or 3.")
+
